@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="amplifiers_url">http://</string>
+    <string name="cassette_players_url">http://</string>
+    <string name="db_info_url">http://</string>
+    <string name="gramophones_url">http://</string>
+    <string name="others_url">http://</string>
+    <string name="radio_cassette_players_url">http://</string>
+    <string name="radiolas_url">http://</string>
+    <string name="receivers_url">http://</string>
+    <string name="speaker_sets_url">http://</string>
+</resources>

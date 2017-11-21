@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:tag="cards main container"
+    android:paddingEnd="15dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:paddingStart="15dp"
+    android:paddingTop="3dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        card_view:cardBackgroundColor="@color/backgroundWhite"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="0dp"
+        card_view:cardUseCompatPadding="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:paddingRight="2dp"
+            android:paddingLeft="2dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="120dp"
+                android:layout_height="68dp"
+                android:src="@drawable/przykladowe1"
+                android:scaleType="centerCrop"
+                android:tag="image_tag" />
+
+            <LinearLayout
+                android:layout_weight="40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/textViewName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Android Name"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <Button
+                android:layout_gravity="end"
+                android:layout_width="4dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
