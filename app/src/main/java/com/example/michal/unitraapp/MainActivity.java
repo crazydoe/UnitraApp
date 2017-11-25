@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.michal.unitraapp.Database.DB;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,8 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        intent = new Intent(this, CategoriesActivity.class);
-
+        intent = new Intent(this, CategoriesListActivity.class);
 
         // TODO permissions check
 
@@ -34,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1000 );
+        }, 1400 );
 
     }
 }

@@ -36,7 +36,7 @@
                 android:layout_width="120dp"
                 android:layout_height="68dp"
                 android:src="@drawable/przykladowe1"
-                android:scaleType="centerCrop"
+                android:scaleType="fitStart"
                 android:tag="image_tag" />
 
             <LinearLayout
@@ -48,6 +48,7 @@
 
                 <TextView
                     android:id="@+id/textViewName"
+                    android:textColor="#404040"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -60,7 +61,7 @@
             <Button
                 android:layout_gravity="end"
                 android:layout_width="4dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorPrimary"
                 android:layout_height="match_parent" />
         </LinearLayout>
 

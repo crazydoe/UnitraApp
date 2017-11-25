@@ -7,7 +7,7 @@ import com.example.michal.unitraapp.Database.Models.Gramophone;
 import com.example.michal.unitraapp.Database.Models.Other;
 import com.example.michal.unitraapp.Database.Models.RadioCassettePlayer;
 import com.example.michal.unitraapp.Database.Models.Radiola;
-import com.example.michal.unitraapp.Database.Models.Receiver;
+import com.example.michal.unitraapp.Database.Models.RadioReceiver;
 import com.example.michal.unitraapp.Database.Models.SpeakerSet;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,9 +27,7 @@ public class DB {
 //       if(dbInfo !=null)
 
 
-
     }
-
 
 
     public static class Amplifiers{
@@ -140,18 +138,18 @@ public class DB {
     }
 
 
-    public static class Receivers{
+    public static class RadioReceivers{
 
-        public static ArrayList<Receiver> getAll(){
+        public static ArrayList<RadioReceiver> getAll(){
             return new Select()
-                    .from(Receiver.class)
+                    .from(RadioReceiver.class)
                     .orderBy("Name ASC")
                     .execute();
         }
 
-        public static Receiver getById(Integer id){
+        public static RadioReceiver getById(Integer id){
             return new Select()
-                    .from(Receiver.class)
+                    .from(RadioReceiver.class)
                     .where("Id = ?", id)
                     .executeSingle();
         }
