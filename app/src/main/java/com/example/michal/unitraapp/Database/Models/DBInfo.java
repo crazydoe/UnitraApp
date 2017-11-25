@@ -10,14 +10,14 @@ import com.activeandroid.annotation.Table;
 @Table(name = "DBInfo")
 public class DBInfo {
 
-    public Double getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(Double version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
     @Column(name = "Version")
-    private Double version;
+    private Integer version;
 }

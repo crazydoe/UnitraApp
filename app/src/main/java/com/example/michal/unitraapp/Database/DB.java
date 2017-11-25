@@ -1,5 +1,7 @@
 package com.example.michal.unitraapp.Database;
 
+import android.util.Log;
+
 import com.activeandroid.query.Select;
 import com.example.michal.unitraapp.Database.Models.Amplifier;
 import com.example.michal.unitraapp.Database.Models.CassettePlayer;
@@ -23,8 +25,10 @@ import java.util.ArrayList;
 public class DB {
 
     public static void updateDatabase() throws IOException {
-       String dbInfo = getHTTPContent(new URL("http://"));
-//       if(dbInfo !=null)
+       String dbInfo = getHTTPContent(new URL("https://raw.githubusercontent.com/crazydoe/UnitraApp/master/db_files/db_info.txt"));
+       if(dbInfo !=null){
+           Log.d("dbVersion: ", dbInfo);
+       }
 
 
     }
