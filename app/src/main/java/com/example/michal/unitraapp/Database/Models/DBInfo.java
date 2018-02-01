@@ -1,5 +1,6 @@
 package com.example.michal.unitraapp.Database.Models;
 
+import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
@@ -8,16 +9,23 @@ import com.activeandroid.annotation.Table;
  */
 
 @Table(name = "DBInfo")
-public class DBInfo {
+public class DBInfo extends Model {
 
-    public Integer getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(Integer version) {
+    public void setVersion(Long version) {
         this.version = version;
     }
 
+    public DBInfo(Long info){
+        this.version = info;
+    }
+    public DBInfo(){
+        super();
+    }
+
     @Column(name = "Version")
-    private Integer version;
+    private Long version;
 }

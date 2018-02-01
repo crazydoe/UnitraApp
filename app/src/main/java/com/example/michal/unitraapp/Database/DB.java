@@ -2,9 +2,11 @@ package com.example.michal.unitraapp.Database;
 
 import android.util.Log;
 
+import com.activeandroid.Model;
 import com.activeandroid.query.Select;
 import com.example.michal.unitraapp.Database.Models.Amplifier;
 import com.example.michal.unitraapp.Database.Models.CassettePlayer;
+import com.example.michal.unitraapp.Database.Models.DBInfo;
 import com.example.michal.unitraapp.Database.Models.Gramophone;
 import com.example.michal.unitraapp.Database.Models.Other;
 import com.example.michal.unitraapp.Database.Models.RadioCassettePlayer;
@@ -14,9 +16,10 @@ import com.example.michal.unitraapp.Database.Models.SpeakerSet;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by michal on 17.11.2017.
@@ -27,10 +30,19 @@ public class DB {
     public static void updateDatabase() throws IOException {
        String dbInfo = getHTTPContent(new URL("https://raw.githubusercontent.com/crazydoe/UnitraApp/master/db_files/db_info.txt"));
        if(dbInfo !=null){
-           Log.d("dbVersion: ", dbInfo);
+           DBInfo dbVersion = RawDBParser.dbInfoParser(dbInfo);
+
+           if(getDBInfo().isEmpty()){
+               Log.d("dbVersion: ", dbInfo);
+
+
+
+           }
        }
+    }
 
-
+    public static ArrayList<Model> getDBInfo(){
+        return new Select().from(DBInfo.class).limit("1").execute();
     }
 
 
@@ -179,11 +191,12 @@ public class DB {
 
 
     private static String getHTTPContent(URL url) throws IOException {
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
+        urlConnection.connect();
         StringBuilder sb = new StringBuilder();
+        try {
+            if(urlConnection.getResponseCode() >= 200 && urlConnection.getResponseCode() < 300) {
 
-        if(urlConnection.getResponseCode() >= 200 && urlConnection.getResponseCode() < 300) {
-            try {
                 String output;
                 BufferedReader br = new BufferedReader(
                         new InputStreamReader(urlConnection.getInputStream())
@@ -192,10 +205,10 @@ public class DB {
                 while ((output = br.readLine()) != null)
                     sb.append(output).append("\n");
 
-            } finally {
-                urlConnection.disconnect();
-            }
-        }else return null;
+            }else return null;
+        } finally {
+            urlConnection.disconnect();
+        }
         return sb.toString();
     }
 
